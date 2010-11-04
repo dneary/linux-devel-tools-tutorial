@@ -4,6 +4,9 @@ CFLAGS=-g
 
 all: demo-gdb demo-valgrind
 
+clean:
+	rm demo-gdb demo-valgrind
+
 demo-gdb: demo-gdb.c
 	gcc $(CFLAGS) -o $@ $<
 
