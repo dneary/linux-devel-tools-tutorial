@@ -34,15 +34,19 @@ void delete_person (struct node *p)
     struct node *prev = p->prev;
     struct node *next = p->next;
 
-    if (prev != NULL) {
+    if (prev == NULL && next == NULL ) {
+        ;
+    } else if (prev == NULL) {
+        next->prev = NULL;
+    } else if (next == NULL) {
+        prev->next = NULL;
+    } else {
+        next->prev = p->prev;
         prev->next = p->next;
     }
 
-    if (next != NULL) {
-        next->prev = p->prev;
-    }
-
     free(p);
+    p = NULL;
     /* Leak - we need to free the person & name too */
     return;
 }
