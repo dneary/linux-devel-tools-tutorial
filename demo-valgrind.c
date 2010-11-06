@@ -70,22 +70,22 @@ int main (void)
 
     n = create_person (2, "Thomas Perl");
     tail->next = n;
-    n->prev = tail->prev;
+    n->prev = tail;
     tail = n;
     
     n = create_person (3, "Alison Chaiken");
     tail->next = n;
-    n->prev = tail->prev;
+    n->prev = tail;
     tail = n;
     
     n = create_person (4, "Andrea Grandi");
     tail->next = n;
-    n->prev = tail->prev;
+    n->prev = tail;
     tail = n;
     
     n = create_person (5, "Kevin Ottens");
     tail->next = n;
-    n->prev = tail->prev;
+    n->prev = tail;
     tail = n;
     
     for (n=head; n; ) {
@@ -97,7 +97,7 @@ int main (void)
     }
     n = create_person (6, "Bob Spencer");
     tail->next = n;
-    n->prev = tail->prev;
+    n->prev = tail;
     tail = n;
     
     write_list (head);
