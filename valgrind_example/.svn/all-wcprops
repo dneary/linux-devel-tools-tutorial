@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/maemoexamples/!svn/ver/348/tags/maemo_5.0/valgrind_example
+END
+License
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/maemoexamples/!svn/ver/348/tags/maemo_5.0/valgrind_example/License
+END
+valgrind_example.c
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/maemoexamples/!svn/ver/348/tags/maemo_5.0/valgrind_example/valgrind_example.c
+END
+valgrind_example2.c
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/maemoexamples/!svn/ver/348/tags/maemo_5.0/valgrind_example/valgrind_example2.c
+END
+README
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/maemoexamples/!svn/ver/348/tags/maemo_5.0/valgrind_example/README
+END

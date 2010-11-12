@@ -1,0 +1,10 @@
+Examples of using valgrind. See Maemo Debugging Guide for more details.
+
+Compile example:
+> gcc valgrind_example.c -o valgrind_example -g -O2 -Wall
+
+Use valgrind:
+> valgrind --tool=memcheck --leak-check=yes --show-reachable=yes \
+--num-callers=20 --track-fds=yes ./valgrind_example
+
+It should show 2 memory leaks.
