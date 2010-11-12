@@ -1,0 +1,53 @@
+gdb_example & gdb_example2
+--------------------------
+
+Examples of using gdb. Intended to be used together with Maemo Debugging Guide. 
+Brief tests follow:
+
+1. Install debug tools 
+> fakeroot apt-get install maemo-sdk-debug
+
+2. Compile the examples with debug flags:
+> gcc gdb_example.c -o gdb_example -g
+> gcc gdb_example2.c -o gdb_example2 -g
+
+3. Open the first example under the debugger.
+> native-gdb gdb_example
+
+4. Set a breakpoint to function example_3
+(gdb) br example_3
+
+5. Run the example
+(gdb) run
+...
+Breakpoint 1, example_3 () at gdb_example.c:22
+22	  printf("Now in example_3()\n");
+
+6. quit gdb
+(gdb) q
+The program is running.  Quit anyway (and kill it)? (y or n) y
+
+----
+
+example2.c is similar, but it uses the sleep() function so that it consumes
+less cpu time, as it was meant to be run in the background, killed, and
+then core file examined. This also demonstrates that gdb can investigate
+libraries too if debug versions of them have been installed.
+
+1. start the example 
+> ./gdb_example2 &
+
+2. kill the example with SIGSEGV signal
+> kill -SIGSEGV %1
+
+3. Examine the core file in gdb
+> native-gdb ./gdb_example2 core
+(gdb) bt
+#0  0xb7eb4d3b in __nanosleep_nocancel () from /lib/libc.so.6
+#1  0xb7eb4b73 in sleep () from /lib/libc.so.6
+#2  0x08048430 in example_1 (x=1) at gdb_example2.c:46
+#3  0x08048483 in main (argc=1, argv=0xbfc547b4) at gdb_example2.c:56
+(gdb) q
+ 
+The Maemo Debugging Guide has a more involved example that uses a core file 
+produced on device.
