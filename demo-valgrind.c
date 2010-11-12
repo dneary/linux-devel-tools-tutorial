@@ -29,6 +29,25 @@ struct node *create_person (int id, char *name)
     return n;
 }
 
+void add_person(struct node *list, struct node *person)
+{
+    struct node *tail = list;
+
+    if (tail == NULL) {
+	fprintf(stderr, "NULL list pointer sent to add_person\n");
+        exit(1);
+    }
+
+    while(tail->next != NULL)
+        tail = tail->next;
+
+    tail->next = person;
+    person->prev = tail;
+    tail = person;
+    
+
+}
+
 void delete_person (struct node *p)
 {
     struct node *prev = p->prev;
@@ -63,32 +82,23 @@ void write_list (struct node *list)
 
 int main (void)
 {
-    struct node *head = NULL, *tail = NULL, *n;
+    struct node *list = NULL, *n;
 
-    head = create_person (1, "Dave Neary");
-    tail = head;
+    list = create_person (1, "Dave Neary");
 
     n = create_person (2, "Thomas Perl");
-    tail->next = n;
-    n->prev = tail;
-    tail = n;
-    
+    add_person (list, n);
+
     n = create_person (3, "Alison Chaiken");
-    tail->next = n;
-    n->prev = tail;
-    tail = n;
+    add_person (list, n);
     
     n = create_person (4, "Andrea Grandi");
-    tail->next = n;
-    n->prev = tail;
-    tail = n;
+    add_person (list, n);
     
     n = create_person (5, "Kevin Ottens");
-    tail->next = n;
-    n->prev = tail;
-    tail = n;
+    add_person (list, n);
     
-    for (n=head; n; ) {
+    for (n=list; n; ) {
         struct node *next = n->next;
         if (n->p->id % 2 == 0) {
             delete_person(n);
@@ -96,11 +106,9 @@ int main (void)
         n = next;
     }
     n = create_person (6, "Bob Spencer");
-    tail->next = n;
-    n->prev = tail;
-    tail = n;
+    add_person (list, n);
     
-    write_list (head);
+    write_list (list);
 
     return EXIT_SUCCESS;
 }
