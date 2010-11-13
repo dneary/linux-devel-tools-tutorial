@@ -48,10 +48,10 @@ void add_person(struct node *list, struct node *person)
 
 }
 
-void delete_person (struct node *p)
+void delete_person (struct node *n)
 {
-    struct node *prev = p->prev;
-    struct node *next = p->next;
+    struct node *prev = n->prev;
+    struct node *next = n->next;
 
     if (prev == NULL && next == NULL ) {
         ;
@@ -60,13 +60,15 @@ void delete_person (struct node *p)
     } else if (next == NULL) {
         prev->next = NULL;
     } else {
-        next->prev = p->prev;
-        prev->next = p->next;
+        next->prev = n->prev;
+        prev->next = n->next;
     }
 
-    free(p);
-    p = NULL;
-    /* Leak - we need to free the person & name too */
+    free(n->p->name);
+    free(n->p);
+    free(n);
+    n = NULL;
+
     return;
 }
 
@@ -83,20 +85,16 @@ void write_list (struct node *list)
 int main (void)
 {
     struct node *list = NULL, *n;
+    char name [30];
+    int i;
 
-    list = create_person (1, "Dave Neary");
+    list = create_person (1, "Joe Bloggs 1");
 
-    n = create_person (2, "Thomas Perl");
-    add_person (list, n);
-
-    n = create_person (3, "Alison Chaiken");
-    add_person (list, n);
-    
-    n = create_person (4, "Andrea Grandi");
-    add_person (list, n);
-    
-    n = create_person (5, "Kevin Ottens");
-    add_person (list, n);
+    for (i = 0; i < 10000; i++) {
+        sprintf(name, "Joe Bloggs %d", i);
+        n = create_person (i, name);
+        add_person (list, n);
+    }
     
     for (n=list; n; ) {
         struct node *next = n->next;
@@ -105,8 +103,6 @@ int main (void)
         }
         n = next;
     }
-    n = create_person (6, "Bob Spencer");
-    add_person (list, n);
     
     write_list (list);
 

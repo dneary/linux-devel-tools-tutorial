@@ -2,3 +2,22 @@ I iz a grate codr, all theez progams work excellent!
 
 Dave Neary.
 
+Programs:
+
+demo-gdb: Segmentation fault (core dump) - get a backtrace from a core
+demo-gdb1: Implementation of a stack for parsing a "reverse polish" input 
+           string of operators and floating point numbers, and calculating
+           the result. Numbers are pushed onto a stack, and when an operator
+           is encountered, the required number of arguments are popped, 
+           the result calculated, and the result pushed back onto the stack.
+           When the end of the input string is reached, the result is popped 
+           off the top of the stack.
+           Valid operators are: + - * /.
+           The input string "2 2 *" should give the result 4. "2 2 * 5 +"
+           should give 9. "2 3 * 1.2 2.7 + * 1 4 + /" should give the result 
+           ( (2.7 + 1.2) * (3 * 2) ) / (4 + 1) = 4.68
+demo-massif: Allocates lots of heap memory - gives useful results in Massif
+demo-valgrind: Linked list implementation with lots of memory leaks, 
+               and potential bugs. Also profiling issues - which we should 
+               get with >100 inputs.
+
