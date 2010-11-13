@@ -3,7 +3,7 @@
 
 int main(void)
 {
-    char *buf;
+    char buf[80];
     printf("Please enter some test.\n");
 
 

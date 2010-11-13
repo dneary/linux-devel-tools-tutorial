@@ -37,7 +37,11 @@ void push(double d)
 /* Pop a number off the stack */
 double pop()
 {
+
+
+if(head<0){ printf("You've entered a bad string\n"); exit(0); }
 	return stack[head--];
+
 }
 
 double calculate(char *rpn_string)
