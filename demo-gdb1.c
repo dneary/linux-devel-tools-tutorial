@@ -37,6 +37,9 @@ void push(double d)
 /* Pop a number off the stack */
 double pop()
 {
+  if (head <0) 
+	exit (0);
+
 	return stack[head--];
 }
 

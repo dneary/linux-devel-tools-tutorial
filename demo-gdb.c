@@ -3,10 +3,11 @@
 
 int main(void)
 {
-    char *buf;
+    char buf[81];
 
     fgets(buf, 80, stdin);
-    printf("%s\n", buf);
+   buf[80]= '\0'; 
+   printf("%s\n", buf);
 
     return 0;
 }
