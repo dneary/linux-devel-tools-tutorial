@@ -66,7 +66,7 @@ void delete_person (struct node *p)
 
     free(p);
     p = NULL;
-    /* Leak - we need to free the person & name too */
+
     return;
 }
 
