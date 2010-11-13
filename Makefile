@@ -2,7 +2,7 @@
 CC=gcc
 CFLAGS=-g
 
-all: demo-gdb demo-gdb1 demo-valgrind demo-massif
+all: demo-gdb demo-gdb1 demo-valgrind demo-massif demo-kcachegrind
 
 clean:
 	rm demo-gdb demo-valgrind
@@ -17,5 +17,8 @@ demo-valgrind: demo-valgrind.c
 	gcc $(CFLAGS) -o $@ $<
 
 demo-massif: demo-massif.c
+	gcc $(CFLAGS) -o $@ $<
+
+demo-kcachegrind: demo-kcachegrind.c
 	gcc $(CFLAGS) -o $@ $<
 
