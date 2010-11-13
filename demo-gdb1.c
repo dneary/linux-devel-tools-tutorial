@@ -41,6 +41,7 @@ double pop()
 	exit (0);
 
 	return stack[head--];
+
 }
 
 double calculate(char *rpn_string)
