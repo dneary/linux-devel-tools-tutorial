@@ -29,21 +29,22 @@ struct node *create_person (int id, char *name)
     return n;
 }
 
-void add_person(struct node *list, struct node *person)
+void add_person(struct node *node, struct node *person)
 {
-    struct node *tail = list;
+    struct node *tmp;
 
-    if (tail == NULL) {
-	fprintf(stderr, "NULL list pointer sent to add_person\n");
+    if (node == NULL) {
+	fprintf(stderr, "add_person\n");
         exit(1);
     }
+    tmp = node->next;
 
-    while(tail->next != NULL)
-        tail = tail->next;
+    node->next = person;
+    person->prev = node;
 
-    tail->next = person;
-    person->prev = tail;
-    tail = person;
+    person->next = tmp;
+    if (tmp != NULL)
+        tmp->prev = person;
     
 
 }
@@ -84,16 +85,18 @@ void write_list (struct node *list)
 
 int main (void)
 {
-    struct node *list = NULL, *n;
+    struct node *list = NULL, *last_node, *n;
     char name [30];
     int i;
 
     list = create_person (1, "Joe Bloggs 1");
+    last_node = list;
 
     for (i = 0; i < 10000; i++) {
         sprintf(name, "Joe Bloggs %d", i);
         n = create_person (i, name);
-        add_person (list, n);
+        add_person (last_node, n);
+        last_node = n;
     }
     
     for (n=list; n; ) {

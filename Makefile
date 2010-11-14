@@ -2,23 +2,25 @@
 CC=gcc
 CFLAGS=-g
 
-all: demo-gdb demo-gdb1 demo-valgrind demo-massif demo-kcachegrind
+TARGETS=demo-gdb demo-gdb1 demo-valgrind demo-massif demo-kcachegrind
+
+all: $(TARGETS)
 
 clean:
-	rm demo-gdb demo-valgrind
+	rm $(TARGETS)
 
 demo-gdb: demo-gdb.c
-	gcc $(CFLAGS) -o $@ $<
+	$(CC) $(CFLAGS) -o $@ $<
 
 demo-gdb1: demo-gdb1.c
-	gcc $(CFLAGS) -o $@ $<
+	$(CC) $(CFLAGS) -o $@ $<
 
 demo-valgrind: demo-valgrind.c
-	gcc $(CFLAGS) -o $@ $<
+	$(CC) $(CFLAGS) -o $@ $<
 
 demo-massif: demo-massif.c
-	gcc $(CFLAGS) -o $@ $<
+	$(CC) $(CFLAGS) -o $@ $<
 
 demo-kcachegrind: demo-kcachegrind.c
-	gcc $(CFLAGS) -o $@ $<
+	$(CC) $(CFLAGS) -o $@ $<
 

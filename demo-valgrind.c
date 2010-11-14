@@ -48,10 +48,10 @@ void add_person(struct node *list, struct node *person)
 
 }
 
-void delete_person (struct node *p)
+void delete_person (struct node *n)
 {
-    struct node *prev = p->prev;
-    struct node *next = p->next;
+    struct node *prev = n->prev;
+    struct node *next = n->next;
 
     if (prev == NULL && next == NULL ) {
         ;
@@ -60,12 +60,14 @@ void delete_person (struct node *p)
     } else if (next == NULL) {
         prev->next = NULL;
     } else {
-        next->prev = p->prev;
-        prev->next = p->next;
+        next->prev = n->prev;
+        prev->next = n->next;
     }
 
-    free(p);
-    p = NULL;
+    free(n->p->name);
+    free(n->p);
+    free(n);
+    n = NULL;
 
     return;
 }
