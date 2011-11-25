@@ -42,9 +42,14 @@ Je peux travailler sur plusieurs tâches à la fois, bien que ce ne soit
 pas conseillé, et réorganiser les commits après coup.
 
 1. git clone git@github.com:dneary/linux-devel-tools-tutorial.git
+ - Crée une copie locale du référentiel à distance
+
 2. git branch crazyfeature
 3. git checkout crazyfeature
+ - Initialisation & utilisation d'une branche dans référentiel local
+
 4. Travaille sur le feature fou
 5. git commit -a -m "Première ébauche pour la nouvelle fonctionnalité fou"
 6. git push origin
+ - Crée branche à distance, afin que d'autres puissent le voir
 
