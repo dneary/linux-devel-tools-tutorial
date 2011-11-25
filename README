@@ -1,9 +1,37 @@
-Hello MeeGoConf
-
 Pour les Jeudis du Libre, j'ai ajouté quelques informations 
 supplémentaires dans le README. Ce sera sur une nouvelle branche.
 
-Création d'un conflit pour démontrer l'exemple d'une merge.
+1. Créer un repo:
 
-Dave.
+$ git init
+$ git add -A
+$ git commit -m "Initial commit"
+
+2. Récupérer un repo:
+
+$ git clone <uri>
+$ cd <dir>
+$ git checkout <branch>
+
+3. Faire des changements
+
+- Modifier des fichiers
+$ git add <filename>
+$ git commit -m "commit message" ou git commit [une éditeur s'ouvre]
+ou:
+$ git commit -a -m "commit message"
+
+4. Créer et partagter une branche
+$ git branch <branchname>
+$ git checkout <branchname>
+$ git push <remotename>
+
+5. Donner une alias à une remote
+$ git remote <alias> <uri>
+
+6. Reporter des changements d'une branche sur une autre
+
+ - Déscription de merge
+ - Déscription de rebase
+ - Déscription de rebase --interactive
 
