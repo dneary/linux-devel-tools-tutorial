@@ -6,5 +6,10 @@ comme je veux, committer autant que je veux.
 Je peux travailler sur plusieurs tâches à la fois, bien que ce ne soit
 pas conseillé, et réorganiser les commits après coup.
 
-Dave.
+1. git clone git@github.com:dneary/linux-devel-tools-tutorial.git
+2. git branch crazyfeature
+3. git checkout crazyfeature
+4. Travaille sur le feature fou
+5. git commit -a -m "Première ébauche pour la nouvelle fonctionnalité fou"
+6. git push origin
 
