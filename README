@@ -7,14 +7,12 @@ $ git init
 $ git add -A
 $ git commit -m "Initial commit"
 
-2. Récupérer un repo:
-
-$ git clone <uri>
-$ cd <dir>
+2. Crée une copie locale du référentiel à distance
+$ git clone git@github.com:dneary/linux-devel-tools-tutorial.git
+$ cd linux-devel-tools-tutorial
 $ git checkout <branch>
 
 3. Faire des changements
-
 - Modifier des fichiers
 $ git add <filename>
 $ git commit -m "commit message" ou git commit [une éditeur s'ouvre]
@@ -22,14 +20,22 @@ ou:
 $ git commit -a -m "commit message"
 
 4. Créer et partagter une branche
-$ git branch <branchname>
-$ git checkout <branchname>
-$ git push <remotename>
+$ git branch crazyfeature
+$ git checkout crazyfeature
+ - Initialisation & utilisation d'une branche dans référentiel local
 
-5. Donner une alias à une remote
+5. Travaille sur le feature fou
+- Modifier des fichiers
+$ git commit -a -m "Première ébauche pour la nouvelle fonctionnalité fou"
+
+6. Partage feature sur une branche
+$ git push origin
+ - Peut également mettre le nom de la branch, ou une autre <remote>
+
+7. Donner une alias à une remote
 $ git remote <alias> <uri>
 
-6. Reporter des changements d'une branche sur une autre
+8. Reporter des changements d'une branche sur une autre
 
  - Déscription de merge
  - Déscription de rebase
@@ -40,16 +46,3 @@ comme je veux, committer autant que je veux.
 
 Je peux travailler sur plusieurs tâches à la fois, bien que ce ne soit
 pas conseillé, et réorganiser les commits après coup.
-
-1. git clone git@github.com:dneary/linux-devel-tools-tutorial.git
- - Crée une copie locale du référentiel à distance
-
-2. git branch crazyfeature
-3. git checkout crazyfeature
- - Initialisation & utilisation d'une branche dans référentiel local
-
-4. Travaille sur le feature fou
-5. git commit -a -m "Première ébauche pour la nouvelle fonctionnalité fou"
-6. git push origin
- - Crée branche à distance, afin que d'autres puissent le voir
-
