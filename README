@@ -21,6 +21,8 @@ $ git commit -m "commit message" ou git commit [une éditeur s'ouvre]
 ou:
 $ git commit -a -m "commit message"
 
+Hello Art!
+
 4. Créer et partagter une branche
 $ git branch <branchname>
 $ git checkout <branchname>
